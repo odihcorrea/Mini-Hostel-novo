@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprovante de reserva</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <script src="js/script.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    <div id="container" class="container">
+        <fieldset class="">
+            <legend class="h1" style="text-align: center;">Comprovante de reserva</legend>
+            <form action="" class="form-group">
+                <fieldset>
+                    <legend class="">Dados do Hóspede</legend>
+                    <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome Completo">
+                    <input class="form-control" type="text" name="cpf" id="cpf" placeholder="CPF">
+                    <input class="form-control" type="text" name="contato" id="contato" placeholder="Contato">
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend>Dados da reserva</legend>
+                    <label for="data">Reserva realizada em: </label>
+                    <input class="form-control" type="date" name="data" id="data" placeholder="Data da reserva">
+
+                    <br>
+
+                    <div class="form-check form-switch">
+                        <input type="checkbox" class="form-check-input" name="quartoCom" id="quartoCom">
+                        <label for="quartoCom" class="form-check-label">Quarto Compartilhado</label>
+                    </div>
+                    
+                    <div class="form-check form-switch">   
+                        <input type="checkbox" class="form-check-input" name="quartoSui" id="quartoSui">
+                        <label for="quartoSui" class="form-check-label">Quarto Suíte</label>
+                    </div>
+
+                    <div class="form-check form-switch">
+                        <input type="checkbox" class="form-check-input" name="quartoQuin" id="quartoQuin">
+                        <label for="quartoQuin" class="form-check-label">Quarto Quíntuplo</label>
+                    </div>
+
+                    <div class="form-check form-switch">
+                        <input type="checkbox" class="form-check-input" name="casaInt" id="casaInt">
+                        <label for="casaInt" class="form-check-label">Casa Inteira</label>
+                    </div>
+
+
+                    <br>
+
+                <fieldset id="hospedes">
+                    <legend>Hóspedes</legend>
+                    <input class="form-control" type="number" name="nadultos" id="nadultos" placeholder="Adultos">
+                    <input class="form-control" type="number" name="ncriancas" id="ncriancas" placeholder="Crianças">
+                </fieldset>
+                <br>
+                <label for="checkin">Check In</label>
+                <input class="form-control" type="date" name="checkin" id="checkin" placeholder="Check In">
+                
+                <label for="checkout">Check Out</label>
+                <input class="form-control" type="date" name="checkout" id="checkout" placeholder="Check Out">
+
+                <br>
+
+                <fieldset>
+                    <legend>Dados de Pagamento</legend>
+                    <label for="total">Valor Total da Reserva:</label>
+                    <input class="form-control" type="text" name="total" id="total" placeholder="R$">
+                    <label for="pago">Valor pago:</label>
+                    <input class="form-control" type="text" name="pago" id="pago" placeholder="R$">
+                    <label for="receber">Valor restante:</label>
+                    <input class="form-control" type="text" name="receber" id="receber" placeholder="R$">
+                
+                </fieldset>
+            </form>
+        </fieldset>
+        <br>
+        <div id="imprimir" class="d-grid gap-2">
+            <button id="btnimp" class="btn btn-primary">Imprimir</button>
+        </div>
+        <br>
+        <br>
+
+        <div id="Politicas">
+            <h3>Políticas da Hospedagem</h3>
+            <br>
+            <p><strong>Horário de Check In: </strong>Das 13h às 22h</p>
+            <p><strong>Horário de Check Out: </strong>Até as 12h</p>
+            <p><strong>Observação: </strong>Em caso de não desocupação do quarto até o horário de Check Out, a hospedagem tentará entrar em contato com o hóspede para verificar se há interesse de mais uma diária. Caso não haja resposta por parte do hóspede, a hospedagem retirará os pertences do quarto e colocará na recepção, a fim de desocupar o quarto.</p>
+
+            <p><strong>Check in fora de horário: </strong>Caso haja necessidade de chegada antes ou após o horário pré-estabelecido anteriormente, deve-se comunicar a hospedagem para verificar disponibilidade. Nesses casos, será necessária a efetuação da reserva do dia anterior, visto nossos horários de entrada e saída. <strong>para mais informações, entre em contato com a hospedagem.</strong></p>
+
+            <br>
+
+            <h5>Reservas</h5>
+            <p><strong>Reserva: </strong>A reserva será efetuada apenas mediante o pagamento de 50% do valor total. Caso não haja pagamento, não será efetuada a reserva.</p>
+            <p><strong>Cancelamento: </strong>O hospede terá até 7 dias corridos* após a data de confirmação da reserva para efetuar o cancelamento gratuíto, visto o Art. 49 do Código de Defesa do Consumidor. Após os 7 dias, o cancelamento será efetuado sem a devolução do valor já pago anteriormente.</p>
+            <p><strong>*Observação: </strong>Em caso de cancelamento até as 11h do dia do Check In ou não comparecimento até as 22h, o valor pago não será ressarcido, independente da data da confirmação da reserva.</p>
+
+            <br>
+
+            <h5>Da hospedagem</h5>
+            <p>Somos um Mini Hostel, um lugar onde há quarto compartilhados e individuais. Fora os quartos individuais, o restante dos ambientes são compartilhados, então você sempre terá contato com outras pessoas. Lugar ideal para conhecer novas culturas e fazer novas amizades.</p>
+            <p><strong>oferecemos: </strong> Cozinha completa compartilhada, lavanderia, água potável e dicas de passeios</p>
+            <p><strong>Não oferecemos: </strong> Café da manhã e toalhas de banho. Por favor, não insista</p>
+            <p><strong>VERIFIQUE AS FOTOS DO SEU QUARTO: </strong>Antes da confirmação da reserva, tenha certeza de ter olhado todas as fotos e tirar todas as suas dúvidas, para que não haja desentendimento na hora de sua chegada.</p>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+</body>
+</html>
